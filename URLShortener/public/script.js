@@ -8,7 +8,7 @@ document
     }
 
     try {
-      const response = await fetch("http://localhost:5000/shorten", {
+      const response = await fetch("http://localhost:5000/api/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: originalUrl }),
@@ -16,7 +16,7 @@ document
 
       const data = await response.json();
       if (data.shortCode) {
-        const shortUrl = `http://localhost:5000/${data.shortCode}`;
+        const shortUrl = `http://localhost:5000/api/${data.shortCode}`;
         document.getElementById("shortUrl").href = shortUrl;
         document.getElementById("shortUrl").innerText = shortUrl;
       } else {
